@@ -1,0 +1,10 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "go run main.go",
+    "build": "go build -o server main.go",
+    "test": "go test ./..."
+  }
+}

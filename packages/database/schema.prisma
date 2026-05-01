@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  image         String?
+  decks         Deck[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Deck {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  cards       Card[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Card {
+  id            String   @id @default(cuid())
+  deckId        String
+  deck          Deck     @relation(fields: [deckId], references: [id])
+  term          String   // Từ gốc (ví dụ: "Nihongo")
+  translation   String   // Nghĩa (ví dụ: "Tiếng Nhật")
+  mnemonic      String?  // Câu chuyện ghi nhớ tạo bởi AI
+  audioUrl      String?  // URL audio phát âm
+  
+  // SRS Fields
+  interval      Int      @default(0)
+  repetition    Int      @default(0)
+  easeFactor    Float    @default(2.5)
+  nextReview    DateTime @default(now())
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
