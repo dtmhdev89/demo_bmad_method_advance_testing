@@ -3,7 +3,8 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { registerAction, SUPPORTED_LANGUAGES, RegisterState } from "./actions";
+import { registerAction, RegisterState } from "./actions";
+import { SUPPORTED_LANGUAGES } from "./constants";
 
 const initialState: RegisterState = {};
 

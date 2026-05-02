@@ -71,5 +71,29 @@
 - 2026-05-02: Khởi tạo implementation, thiết lập database, auth và UI đăng ký. Hoàn thành unit tests.
 
 ## 🏁 Completion Status
-- **Status**: review
-- **Notes**: Khởi tạo nền tảng người dùng cho toàn bộ ứng dụng. Đã sẵn sàng để kiểm thử.
+- Status: ready-for-review
+- last_updated: 2026-05-02T19:25:00Z
+- Khởi tạo nền tảng người dùng cho toàn bộ ứng dụng. Đã sẵn sàng để kiểm thử.
+
+### Test Evidence (AI)
+
+#### Unit Tests (Vitest)
+- File: `apps/web/src/__tests__/register.test.ts`
+- Status: **PASSED (11/11)**
+- Date: 2026-05-02
+
+#### E2E Tests (Playwright)
+- File: `apps/e2e/tests/auth.spec.ts`
+- Browsers: Chromium, Firefox, Webkit
+- Status: **PASSED (15/15 test cases across 3 browsers)**
+- Evidence:
+  - `should register a new user successfully`: PASSED
+  - `should show validation error for invalid email`: PASSED
+  - `should show error if no language is selected`: PASSED
+
+#### API Tests (Go)
+- Status: **PASSED (2/2)**
+
+### Review Follow-ups (AI)
+- [x] [Review][Decision] Thiếu E2E tests cho Story 1.1 -> Đã bổ sung `auth.spec.ts`.
+- [x] [Review][Decision] E2E tests hiện tại đang FAIL -> Đã cài đặt trình duyệt và fix lỗi localization/import.

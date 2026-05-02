@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   return (
     <div className="min-h-screen bg-[#050505] text-white selection:bg-purple-500/30">
       {/* Navigation */}
@@ -15,9 +17,12 @@ export default function Home() {
             <a href="#" className="transition-colors hover:text-white">Tính năng</a>
             <a href="#" className="transition-colors hover:text-white">Giá cả</a>
           </div>
-          <button className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-black transition-transform hover:scale-105 active:scale-95">
+          <Link
+            href={`/${locale}/register`}
+            className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-black transition-transform hover:scale-105 active:scale-95"
+          >
             Bắt đầu học
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -47,9 +52,12 @@ export default function Home() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="h-14 w-full rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 px-8 text-lg font-bold transition-all hover:shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:brightness-110 sm:w-auto">
+            <Link
+              href={`/${locale}/register`}
+              className="flex items-center justify-center h-14 w-full rounded-2xl bg-gradient-to-r from-purple-600 to-blue-600 px-8 text-lg font-bold transition-all hover:shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:brightness-110 sm:w-auto"
+            >
               Thử miễn phí ngay
-            </button>
+            </Link>
             <button className="h-14 w-full rounded-2xl border border-white/10 bg-white/5 px-8 text-lg font-bold backdrop-blur-sm transition-colors hover:bg-white/10 sm:w-auto">
               Xem demo
             </button>
@@ -65,6 +73,7 @@ export default function Home() {
                 width={1200}
                 height={800}
                 className="rounded-[1.5rem] shadow-2xl"
+                style={{ width: '100%', height: 'auto' }}
                 priority
               />
             </div>

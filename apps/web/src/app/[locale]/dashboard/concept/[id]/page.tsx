@@ -1,7 +1,5 @@
-import { use } from "react";
-
-export default function ConceptDetail({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export default async function ConceptDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
 
   return (
     <div className="min-h-screen bg-[#050505] text-white p-8">

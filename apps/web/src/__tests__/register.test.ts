@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { registerAction, SUPPORTED_LANGUAGES } from "@/app/(auth)/register/actions";
+import { registerAction, RegisterState } from "@/app/(auth)/register/actions";
+import { SUPPORTED_LANGUAGES } from "@/app/(auth)/register/constants";
 import { prisma } from "database";
 import * as auth from "@/auth";
 

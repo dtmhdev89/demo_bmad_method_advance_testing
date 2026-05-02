@@ -1,0 +1,54 @@
+
+Running 3 tests using 3 workers
+
+  ✓  1 [chromium] › tests/auth.spec.ts:29:7 › User Registration › should show validation error for invalid email (2.0s)
+  ✓  2 [chromium] › tests/auth.spec.ts:42:7 › User Registration › should show error if no language is selected (2.1s)
+  ✘  3 [chromium] › tests/auth.spec.ts:8:7 › User Registration › should register a new user successfully (12.2s)
+
+
+  1) [chromium] › tests/auth.spec.ts:8:7 › User Registration › should register a new user successfully 
+
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Expected: [32m"http://localhost:3000/[7mvi[27m/dashboard"[39m
+    Received: [31m"http://localhost:3000/[7men[27m/dashboard"[39m
+    Timeout:  10000ms
+
+    Call log:
+    [2m  - Expect "toHaveURL" with timeout 10000ms[22m
+    [2m    6 × unexpected value "http://localhost:3000/vi/register"[22m
+    [2m    8 × unexpected value "http://localhost:3000/en/dashboard"[22m
+
+
+      21 |
+      22 |     // Should redirect to dashboard
+    > 23 |     await expect(page).toHaveURL('/vi/dashboard');
+         |                        ^
+      24 |     
+      25 |     // Verify dashboard content
+      26 |     await expect(page.locator('h1')).toContainText(/Dashboard|Bảng điều khiển/);
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/auth.spec.ts:23:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/auth.spec.ts:8:7 › User Registration › should register a new user successfully 
+  2 passed (14.0s)
+
+  Serving HTML report at http://localhost:60992. Press Ctrl+C to quit.

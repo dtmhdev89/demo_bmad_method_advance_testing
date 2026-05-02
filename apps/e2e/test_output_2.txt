@@ -1,0 +1,80 @@
+
+Running 2 tests using 2 workers
+
+  ✘  2 [chromium] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (17.0s)
+  ✘  1 [chromium] › tests/concept-node.spec.ts:31:7 › Concept Node Creation › should show validation error if meaning is empty (17.2s)
+
+
+  1) [chromium] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for getByTestId('concept-meaning-input')[22m
+
+
+      12 |
+      13 |     // Fill in the meaning using data-testid
+    > 14 |     await page.getByTestId('concept-meaning-input').fill(meaning);
+         |                                                     ^
+      15 |
+      16 |     // Click create button
+      17 |     await page.getByTestId('create-concept-button').click();
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/concept-node.spec.ts:14:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/concept-node.spec.ts:31:7 › Concept Node Creation › should show validation error if meaning is empty 
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for getByTestId('create-concept-button')[22m
+
+
+      31 |   test('should show validation error if meaning is empty', async ({ page }) => {
+      32 |     // Attempt to click create without filling meaning
+    > 33 |     await page.getByTestId('create-concept-button').click();
+         |                                                     ^
+      34 |
+      35 |     // Verify browser validation (required attribute)
+      36 |     const input = page.getByTestId('concept-meaning-input');
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/concept-node.spec.ts:33:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/concept-node-Concept-Node--99eed-n-error-if-meaning-is-empty-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/concept-node-Concept-Node--99eed-n-error-if-meaning-is-empty-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/concept-node-Concept-Node--99eed-n-error-if-meaning-is-empty-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/concept-node-Concept-Node--99eed-n-error-if-meaning-is-empty-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/concept-node-Concept-Node--99eed-n-error-if-meaning-is-empty-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page 
+    [chromium] › tests/concept-node.spec.ts:31:7 › Concept Node Creation › should show validation error if meaning is empty 
+
+  Serving HTML report at http://localhost:61158. Press Ctrl+C to quit.

@@ -1,0 +1,5 @@
+
+Running 2 tests using 2 workers
+
+  ✓  2 [chromium] › tests/concept-node.spec.ts:31:7 › Concept Node Creation › should show validation error if meaning is empty (1.0s)
+  ✘  1 [chromium] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (11.4s)

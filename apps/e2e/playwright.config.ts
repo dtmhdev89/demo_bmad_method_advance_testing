@@ -63,7 +63,7 @@ export default defineConfig({
       command: 'pnpm --filter web dev',
       url: 'http://localhost:3000',
       reuseExistingServer: !process.env.CI,
-      timeout: 120 * 1000,
+      timeout: 120000,
     },
     {
       command: 'pnpm --filter api run dev', // Assuming api has a dev script

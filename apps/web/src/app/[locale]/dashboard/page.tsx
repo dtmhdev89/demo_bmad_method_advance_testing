@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 
 export default function Dashboard() {
   const [meaning, setMeaning] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -14,7 +16,8 @@ export default function Dashboard() {
 
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8080/concepts', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+      const res = await fetch(`${apiUrl}/concepts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,8 +27,8 @@ export default function Dashboard() {
 
       if (res.ok) {
         const data = await res.json();
-        // Redirect to detail page (to be implemented in story 2.x)
-        router.push(`/dashboard/concept/${data.id}`);
+        // Redirect to detail page with locale
+        router.push(`/${locale}/dashboard/concept/${data.id}`);
       } else {
         alert('Có lỗi xảy ra khi tạo Concept Node.');
       }
