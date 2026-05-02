@@ -20,6 +20,9 @@
 | **01/05/2026** | Khởi tạo Product Brief | Xác định tầm nhìn dự án Polyglot Cards. | Tập trung vào phương pháp ghi nhớ thay vì chỉ là thẻ học từ vựng. |
 | **02/05/2026** | Biên soạn PRD (v1) | Hoàn thành bộ yêu cầu sản phẩm. | Chốt cấu trúc đa ngôn ngữ và AI Mnemonics. |
 | **02/05/2026** | Chiến lược Song song hóa | Phân chia Task cho Frontend/Backend/AI. | Sử dụng JSON Contract để Agents làm việc độc lập. |
+| **02/05/2026** | Thiết kế Epic & Story | Phân rã thành 5 Epic và 17 Story. | Acceptance Criteria bằng Tiếng Việt, giữ keyword English. |
+| **02/05/2026** | Sprint Planning | Khởi tạo sprint-status.yaml. | Sẵn sàng cho việc thực thi bằng các Dev Agents. |
+| **02/05/2026** | Khởi tạo Toàn bộ Story | Tạo 17 Story chi tiết cho 5 Epic. | Cung cấp đầy đủ ngữ cảnh kỹ thuật cho giai đoạn Implementation. |
 
 ---
 
@@ -50,8 +53,8 @@
 ---
 
 ## 4. Trạng thái Hiện tại & Bước tiếp theo
-- **Trạng thái:** Đã xong PRD & Chiến lược triển khai.
-- **Lựa chọn tiếp theo:** Cần quyết định giữa Kiến trúc hệ thống (Architecture) hoặc Danh sách Epic/Stories.
+- **Trạng thái:** Đã hoàn thành giai đoạn Hoạch định (Planning Phase) và Chuẩn bị (Preparation). Toàn bộ 17 Story đã ở trạng thái `ready-for-dev`.
+- **Bước tiếp theo:** Phân bổ cho 2 Agent thực thi song song (Backend-heavy vs Frontend-heavy). Bắt đầu với Story 1.1 và 2.1.
 
 ---
 *File này sẽ được cập nhật liên tục mỗi khi có quyết định mới.*

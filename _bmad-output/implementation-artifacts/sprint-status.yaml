@@ -1,0 +1,49 @@
+# generated: 2026-05-02T16:41:43Z
+# last_updated: 2026-05-02T17:10:00Z
+# project: demo_bmad_method_advance_testing
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status: backlog, in-progress, done
+# Story Status: backlog, ready-for-dev, in-progress, review, done
+# Assignees: Agent-Backend (BE), Agent-Frontend (FE)
+
+generated: 2026-05-02T16:41:43Z
+last_updated: 2026-05-02T17:10:00Z
+project: demo_bmad_method_advance_testing
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  epic-1: in-progress
+  1-1-dang-ky-tai-khoan-voi-email-va-chon-ngon-ngu-muc-tieu: [ready-for-dev, Agent-Frontend]
+  1-2-dang-nhap-va-quan-ly-phien-lam-viec-session: [ready-for-dev, Agent-Frontend]
+  1-3-quan-ly-ho-so-va-phan-quyen-free-pro: [ready-for-dev, Agent-Frontend]
+  epic-1-retrospective: optional
+  epic-2: in-progress
+  2-1-tao-concept-node-moi-voi-y-nghia-trung-tam: [ready-for-dev, Agent-Backend]
+  2-2-them-va-quan-ly-dinh-nghia-vi-du-da-ngon-ngu: [ready-for-dev, Agent-Backend]
+  2-3-dinh-kem-hinh-anh-va-am-thanh-vao-concept-node: [ready-for-dev, Agent-Backend]
+  2-4-phan-loai-va-gan-the-tags-categories-cho-concept-node: [ready-for-dev, Agent-Backend]
+  2-5-tim-kiem-va-loc-concept-node: [ready-for-dev, Agent-Backend]
+  epic-2-retrospective: optional
+  epic-3: in-progress
+  3-1-tao-cau-chuyen-ghi-nho-mnemonics-bang-ai: [ready-for-dev, Agent-Frontend]
+  3-2-tu-dong-goi-y-vi-du-cho-cac-ngon-ngu-muc-tieu: [ready-for-dev, Agent-Frontend]
+  3-3-tu-dong-dien-thong-tin-tu-dien-dinh-nghia-loai-tu: [ready-for-dev, Agent-Frontend]
+  epic-3-retrospective: optional
+  epic-4: in-progress
+  4-1-logic-tinh-toan-lich-on-tap-dua-tren-srs: [ready-for-dev, Agent-Backend]
+  4-2-giao-dien-phien-on-tap-lien-ket-da-ngon-ngu: [ready-for-dev, Agent-Backend]
+  4-3-danh-gia-muc-do-ghi-nho-sau-khi-on-tap: [ready-for-dev, Agent-Backend]
+  4-4-bao-cao-tien-do-va-dashboard-phan-tich-hoc-tap: [ready-for-dev, Agent-Backend]
+  4-5-dong-bo-hoa-du-lieu-va-toi-uu-hoa-truy-van: [ready-for-dev, Agent-Backend]
+  epic-4-retrospective: optional
+  epic-5: in-progress
+  5-1-trang-bo-the-cong-khai-va-node-khai-niem-toi-uu-seo: [ready-for-dev, Agent-Frontend]
+  5-2-kham-pha-va-sao-chep-bo-the-cong-dong: [ready-for-dev, Agent-Frontend]
+  epic-5-retrospective: optional
