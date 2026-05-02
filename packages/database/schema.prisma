@@ -47,11 +47,33 @@ model Deck {
 }
 
 model ConceptNode {
-  id             String   @id @default(cuid())
+  id             String       @id @default(cuid())
   meaningCentral String
   cards          Card[]
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  definitions    Definition[]
+  examples       Example[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model Definition {
+  id            String      @id @default(cuid())
+  text          String
+  languageCode  String // "ja", "ko", etc.
+  conceptNodeId String
+  conceptNode   ConceptNode @relation(fields: [conceptNodeId], references: [id], onDelete: Cascade)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Example {
+  id            String      @id @default(cuid())
+  text          String
+  languageCode  String // "ja", "ko", etc.
+  conceptNodeId String
+  conceptNode   ConceptNode @relation(fields: [conceptNodeId], references: [id], onDelete: Cascade)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 }
 
 model Card {

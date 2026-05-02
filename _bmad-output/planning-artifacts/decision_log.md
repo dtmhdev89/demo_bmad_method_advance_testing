@@ -14,8 +14,9 @@
 | DEC-006 | Google Gemini AI SDK | Tận dụng sức mạnh đa ngôn ngữ của Google AI thông qua lớp Gateway linh hoạt. | Approved |
 | DEC-007 | NextAuth (Auth.js) | Xác thực người dùng bảo mật, dễ tích hợp và kiểm soát hoàn toàn dữ liệu. | Approved |
 | DEC-010 | Read-only Offline for MVP | Tối ưu trải nghiệm học tập mà không làm phức tạp hóa cơ chế đồng bộ dữ liệu. | Approved |
-| DEC-011 | Playwright for E2E Testing | Đảm bảo tính ổn định của luồng nghiệp vụ trên toàn bộ stack. | Approved |
 | DEC-012 | E2E Quality Gate Enforcement | Bắt buộc pass E2E tests để hoàn thành Story nhằm duy trì tính ổn định liên tục. | Approved |
+| DEC-013 | I18n Proxy Pattern | Sử dụng pattern [locale] kết hợp với proxy.ts để thay thế middleware i18n truyền thống, giải quyết xung đột với NextAuth. | Approved |
+| DEC-014 | Webpack over Turbopack | Vô hiệu hóa Turbopack để đảm bảo độ ổn định môi trường phát triển và tránh lỗi Hydration. | Approved |
 
 | Giai đoạn | Hành động | Kết quả | Ghi chú |
 | :--- | :--- | :--- | :--- |
@@ -27,6 +28,7 @@
 | **02/05/2026** | Khởi tạo Toàn bộ Story | Tạo 17 Story chi tiết cho 5 Epic. | Cung cấp đầy đủ ngữ cảnh kỹ thuật cho giai đoạn Implementation. |
 | **03/05/2026** | Thiết lập E2E Framework | Cài đặt Playwright và viết test đầu tiên cho Story 2.1. | Đảm bảo AC được kiểm chứng tự động. |
 | **03/05/2026** | Tùy chỉnh Quality Gate | Cấu hình BMad để bắt buộc pass test trước khi Done Story. | Tăng cường tính kỷ luật trong phát triển. |
+| **03/05/2026** | Hoàn thành Story 1.1 & 2.1 | Triển khai Đăng ký tài khoản và Tạo Concept Node. | Đạt 100% pass E2E tests cho cả hai story. |
 
 ---
 
@@ -52,6 +54,16 @@
 - **Lý do:** Tránh tích tụ nợ kỹ thuật (technical debt) và đảm bảo các tính năng cũ không bị hỏng khi thêm tính năng mới.
 - **Công cụ:** Playwright + Custom BMad Workflow Overrides.
 
+### [D-005] Kiến trúc I18n & Auth Compatibility
+- **Lựa chọn:** Chuyển từ Middleware-based I18n sang `[locale]` segment + `proxy.ts`.
+- **Lý do:** Middleware i18n truyền thống thường xung đột với NextAuth session handling. Proxy pattern giúp kiểm soát routing chặt chẽ hơn và hỗ trợ tốt cho SEO.
+- **Hệ quả:** Code routing minh bạch hơn, dễ debug hơn trong môi trường monorepo.
+
+### [D-006] Ổn định hóa môi trường phát triển
+- **Lựa chọn:** Chạy `next dev` với Webpack, tạm thời tắt Turbopack.
+- **Lý do:** Turbopack (Next.js v15) đôi khi gây lỗi Hydration mismatch và hot reload không ổn định khi kết hợp với nhiều thư viện i18n/UI phức tạp.
+- **Kết quả:** Môi trường dev ổn định, tốc độ phản hồi đồng nhất.
+
 ---
 
 ## 3. Bài học kinh nghiệm (Lessons Learned)
@@ -62,8 +74,8 @@
 ---
 
 ## 4. Trạng thái Hiện tại & Bước tiếp theo
-- **Trạng thái:** Đang thực hiện Story 2.1. Đã hoàn tất hạ tầng E2E và cơ chế Quality Gate.
-- **Bước tiếp theo:** Hoàn tất Code Review cho Story 2.1 (kèm bằng chứng E2E test) và chuyển sang Story tiếp theo.
+- **Trạng thái:** Đã hoàn thành Story 1.1 và 2.1. Hạ tầng E2E và I18n đã ổn định.
+- **Bước tiếp theo:** Triển khai Story 1.2 (Login/Session) và Story 2.2 (Multi-language Definitions).
 
 ---
 *File này sẽ được cập nhật liên tục mỗi khi có quyết định mới.*

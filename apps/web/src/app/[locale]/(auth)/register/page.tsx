@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { registerAction, RegisterState } from "./actions";
 import { SUPPORTED_LANGUAGES } from "./constants";
@@ -14,15 +14,17 @@ export default function RegisterPage() {
     initialState
   );
   const router = useRouter();
+  const params = useParams();
+  const locale = params?.locale as string || "vi";
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
 
   // Redirect to dashboard on success
   useEffect(() => {
     if (state.success) {
-      router.push("/dashboard");
+      router.push(`/${locale}/dashboard`);
     }
-  }, [state.success, router]);
+  }, [state.success, router, locale]);
 
   const toggleLanguage = (code: string) => {
     setSelectedLanguages((prev) =>

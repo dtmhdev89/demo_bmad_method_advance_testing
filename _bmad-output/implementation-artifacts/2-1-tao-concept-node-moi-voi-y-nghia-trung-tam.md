@@ -60,5 +60,5 @@
 - UI Frontend sử dụng Next.js 16 (App Router) với hiệu ứng kính mờ (backdrop-blur) và gradient cao cấp.
 
 ## 🏁 Completion Status
-- **Status**: review
-- **Notes**: Đây là đơn vị dữ liệu nhỏ nhất và quan trọng nhất của hệ thống.
+- **Status**: done
+- **Notes**: Đây là đơn vị dữ liệu nhỏ nhất và quan trọng nhất của hệ thống. Đã pass E2E tests.

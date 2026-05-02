@@ -51,3 +51,43 @@ test.describe('User Registration', () => {
     await expect(page.locator('text=Vui lòng chọn ít nhất một ngôn ngữ mục tiêu.')).toBeVisible();
   });
 });
+
+test.describe('User Login', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/login');
+  });
+
+  test('should login successfully with correct credentials', async ({ page }) => {
+    // 1. First, we need a user. Let's register one.
+    const email = `login-test-${Date.now()}@example.com`;
+    const password = 'Password123!';
+    
+    await page.goto('/register');
+    await page.fill('#email', email);
+    await page.fill('#password', password);
+    await page.click('#lang-en');
+    await page.click('#register-submit');
+    await expect(page).toHaveURL(/\/(vi|en|ja)\/dashboard/);
+
+    // 2. Clear cookies/session to log out (or if there's a logout button, use it)
+    await page.context().clearCookies();
+    
+    // 3. Go to login page
+    await page.goto('/login');
+    await page.fill('#email', email);
+    await page.fill('#password', password);
+    await page.click('#login-submit');
+
+    // 4. Should redirect to dashboard
+    await expect(page).toHaveURL(/\/(vi|en|ja)\/dashboard/);
+    await expect(page.locator('h1')).toContainText(/Dashboard|Bảng điều khiển/);
+  });
+
+  test('should show error with incorrect credentials', async ({ page }) => {
+    await page.fill('#email', 'wrong@example.com');
+    await page.fill('#password', 'wrongpassword');
+    await page.click('#login-submit');
+
+    await expect(page.locator('text=Email hoặc mật khẩu không chính xác')).toBeVisible();
+  });
+});

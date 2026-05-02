@@ -6,7 +6,7 @@ const locales = ["vi", "en", "ja"];
 const defaultLocale = "vi";
 
 // Paths that require authentication
-const PROTECTED_PATHS = ["/dashboard"];
+const PROTECTED_PATHS = ["/dashboard", "/study"];
 
 function getLocale(request: NextRequest) {
   const acceptLanguage = request.headers.get("accept-language");

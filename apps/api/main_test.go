@@ -48,3 +48,42 @@ func TestBindConceptRequest(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, "Apple", r.MeaningCentral)
 }
+func TestBindDefinitionRequest(t *testing.T) {
+	e := echo.New()
+	defJSON := `{"text":"A fruit","language_code":"en"}`
+	req := httptest.NewRequest(http.MethodPost, "/concepts/1/definitions", strings.NewReader(defJSON))
+	req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	type Request struct {
+		Text         string `json:"text"`
+		LanguageCode string `json:"language_code"`
+	}
+	var r Request
+	err := c.Bind(&r)
+
+	assert.NoError(t, err)
+	assert.Equal(t, "A fruit", r.Text)
+	assert.Equal(t, "en", r.LanguageCode)
+}
+
+func TestBindExampleRequest(t *testing.T) {
+	e := echo.New()
+	exJSON := `{"text":"I ate an apple","language_code":"en"}`
+	req := httptest.NewRequest(http.MethodPost, "/concepts/1/examples", strings.NewReader(exJSON))
+	req.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	type Request struct {
+		Text         string `json:"text"`
+		LanguageCode string `json:"language_code"`
+	}
+	var r Request
+	err := c.Bind(&r)
+
+	assert.NoError(t, err)
+	assert.Equal(t, "I ate an apple", r.Text)
+	assert.Equal(t, "en", r.LanguageCode)
+}
