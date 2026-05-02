@@ -1,0 +1,7 @@
+[workflow]
+persistent_facts = [
+  "Tiêu chuẩn hoàn thành (Definition of Done): Một story chỉ được coi là hoàn thành khi tất cả các Unit Tests và E2E Tests (Playwright) liên quan đều Pass 100%.",
+  "Ràng buộc thực thi: Trước khi kết thúc story, Agent PHẢI chạy lệnh 'make test-all' và đính kèm báo cáo kết quả vào Story file."
+]
+
+on_complete = "make test-all"

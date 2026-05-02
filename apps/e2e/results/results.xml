@@ -1,0 +1,8 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="6.121112">
+<testsuite name="concept-node.spec.ts" timestamp="2026-05-02T18:50:05.222Z" hostname="chromium" tests="2" failures="0" skipped="0" time="3.274" errors="0">
+<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="2.032">
+</testcase>
+<testcase name="Concept Node Creation › should show validation error if meaning is empty" classname="concept-node.spec.ts" time="1.242">
+</testcase>
+</testsuite>
+</testsuites>

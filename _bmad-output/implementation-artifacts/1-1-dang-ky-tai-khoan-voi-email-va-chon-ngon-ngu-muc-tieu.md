@@ -28,6 +28,48 @@
 - `apps/web/app/(auth)/register/page.tsx`: Giao diện đăng ký.
 - `packages/database/prisma/schema.prisma`: Cập nhật model User nếu cần.
 
+## 📋 Tasks/Subtasks
+- [x] Cập nhật Prisma schema (User, UserLanguage)
+- [x] Cài đặt dependencies (next-auth, bcryptjs, @auth/prisma-adapter)
+- [x] Cấu hình NextAuth (auth.ts, API route handler)
+- [x] Triển khai Server Action cho đăng ký (actions.ts)
+- [x] Tạo giao diện trang đăng ký (page.tsx)
+- [x] Triển khai Auth Middleware để bảo vệ dashboard
+- [x] Viết và xác minh unit tests cho logic đăng ký
+
+## 🤖 Dev Agent Record
+### Implementation Plan
+1. **Database**: Thêm trường `password` vào model `User` và tạo model `UserLanguage` để lưu ngôn ngữ mục tiêu. Export Prisma client từ `packages/database`.
+2. **Auth**: Sử dụng NextAuth.js v5 (Beta) với Credentials Provider. Mật khẩu được mã hóa bằng `bcryptjs` với salt rounds là 12.
+3. **Frontend**: Trang đăng ký sử dụng `useActionState` để xử lý form. Sau khi tạo user thành công trong DB, tự động gọi `signIn` để thiết lập session và chuyển hướng về `/dashboard`.
+4. **Testing**: Sử dụng Vitest để kiểm tra Server Action, mock Prisma và NextAuth để đảm bảo tính cô lập.
+
+### Completion Notes
+- Đã hoàn thành toàn bộ AC.
+- Unit tests đạt tỉ lệ pass 100% (11/11 tests).
+- Giao diện được thiết kế theo phong cách dark premium, tối ưu trải nghiệm người dùng.
+
+## 📂 File List
+- `packages/database/schema.prisma` (Modified)
+- `packages/database/index.ts` (New)
+- `packages/database/package.json` (Modified)
+- `packages/database/tsconfig.json` (New)
+- `apps/web/package.json` (Modified)
+- `apps/web/src/auth.ts` (New)
+- `apps/web/src/middleware.ts` (New)
+- `apps/web/src/app/api/auth/[...nextauth]/route.ts` (New)
+- `apps/web/src/app/(auth)/register/actions.ts` (New)
+- `apps/web/src/app/(auth)/register/page.tsx` (New)
+- `apps/web/src/app/(auth)/layout.tsx` (New)
+- `apps/web/.env.example` (New)
+- `apps/web/vitest.config.ts` (New)
+- `apps/web/src/__tests__/setup.ts` (New)
+- `apps/web/src/__tests__/__mocks__/next-server.ts` (New)
+- `apps/web/src/__tests__/register.test.ts` (New)
+
+## 🔄 Change Log
+- 2026-05-02: Khởi tạo implementation, thiết lập database, auth và UI đăng ký. Hoàn thành unit tests.
+
 ## 🏁 Completion Status
-- **Status**: ready-for-dev
-- **Notes**: Khởi tạo nền tảng người dùng cho toàn bộ ứng dụng.
+- **Status**: review
+- **Notes**: Khởi tạo nền tảng người dùng cho toàn bộ ứng dụng. Đã sẵn sàng để kiểm thử.

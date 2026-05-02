@@ -2,19 +2,37 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator db {
+  provider = "go run github.com/steebchen/prisma-client-go"
+  output   = "../../apps/api/db"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
-  name          String?
-  image         String?
-  decks         Deck[]
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id              String         @id @default(cuid())
+  email           String         @unique
+  password        String? // Hashed password (bcrypt) – null for OAuth users
+  name            String?
+  image           String?
+  decks           Deck[]
+  targetLanguages UserLanguage[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+// Target languages selected during registration
+model UserLanguage {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  languageCode String // ISO 639-1 code e.g. "ja", "ko", "fr"
+  createdAt    DateTime @default(now())
+
+  @@unique([userId, languageCode])
 }
 
 model Deck {
@@ -28,21 +46,32 @@ model Deck {
   updatedAt   DateTime @updatedAt
 }
 
+model ConceptNode {
+  id             String   @id @default(cuid())
+  meaningCentral String
+  cards          Card[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
 model Card {
-  id            String   @id @default(cuid())
-  deckId        String
-  deck          Deck     @relation(fields: [deckId], references: [id])
-  term          String   // Từ gốc (ví dụ: "Nihongo")
-  translation   String   // Nghĩa (ví dụ: "Tiếng Nhật")
-  mnemonic      String?  // Câu chuyện ghi nhớ tạo bởi AI
-  audioUrl      String?  // URL audio phát âm
-  
+  id          String  @id @default(cuid())
+  deckId      String
+  deck        Deck    @relation(fields: [deckId], references: [id])
+  term        String // Từ gốc (ví dụ: "Nihongo")
+  translation String // Nghĩa (ví dụ: "Tiếng Nhật")
+  mnemonic    String? // Câu chuyện ghi nhớ tạo bởi AI
+  audioUrl    String? // URL audio phát âm
+
+  conceptNodeId String?
+  conceptNode   ConceptNode? @relation(fields: [conceptNodeId], references: [id])
+
   // SRS Fields
-  interval      Int      @default(0)
-  repetition    Int      @default(0)
-  easeFactor    Float    @default(2.5)
-  nextReview    DateTime @default(now())
-  
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  interval   Int      @default(0)
+  repetition Int      @default(0)
+  easeFactor Float    @default(2.5)
+  nextReview DateTime @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

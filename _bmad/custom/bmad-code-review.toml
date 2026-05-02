@@ -1,0 +1,4 @@
+[workflow]
+persistent_facts = [
+  "Reviewer PHẢI kiểm tra bằng chứng chạy E2E tests. Nếu thiếu báo cáo test hoặc test fail, story phải bị Reject ngay lập tức."
+]

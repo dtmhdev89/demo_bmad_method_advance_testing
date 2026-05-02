@@ -14,6 +14,8 @@
 | DEC-006 | Google Gemini AI SDK | Tận dụng sức mạnh đa ngôn ngữ của Google AI thông qua lớp Gateway linh hoạt. | Approved |
 | DEC-007 | NextAuth (Auth.js) | Xác thực người dùng bảo mật, dễ tích hợp và kiểm soát hoàn toàn dữ liệu. | Approved |
 | DEC-010 | Read-only Offline for MVP | Tối ưu trải nghiệm học tập mà không làm phức tạp hóa cơ chế đồng bộ dữ liệu. | Approved |
+| DEC-011 | Playwright for E2E Testing | Đảm bảo tính ổn định của luồng nghiệp vụ trên toàn bộ stack. | Approved |
+| DEC-012 | E2E Quality Gate Enforcement | Bắt buộc pass E2E tests để hoàn thành Story nhằm duy trì tính ổn định liên tục. | Approved |
 
 | Giai đoạn | Hành động | Kết quả | Ghi chú |
 | :--- | :--- | :--- | :--- |
@@ -23,6 +25,8 @@
 | **02/05/2026** | Thiết kế Epic & Story | Phân rã thành 5 Epic và 17 Story. | Acceptance Criteria bằng Tiếng Việt, giữ keyword English. |
 | **02/05/2026** | Sprint Planning | Khởi tạo sprint-status.yaml. | Sẵn sàng cho việc thực thi bằng các Dev Agents. |
 | **02/05/2026** | Khởi tạo Toàn bộ Story | Tạo 17 Story chi tiết cho 5 Epic. | Cung cấp đầy đủ ngữ cảnh kỹ thuật cho giai đoạn Implementation. |
+| **03/05/2026** | Thiết lập E2E Framework | Cài đặt Playwright và viết test đầu tiên cho Story 2.1. | Đảm bảo AC được kiểm chứng tự động. |
+| **03/05/2026** | Tùy chỉnh Quality Gate | Cấu hình BMad để bắt buộc pass test trước khi Done Story. | Tăng cường tính kỷ luật trong phát triển. |
 
 ---
 
@@ -43,6 +47,11 @@
 - **Lý do:** Để nhiều AI Agents có thể code cùng lúc mà không bị chồng chéo (conflict).
 - **Công cụ hỗ trợ:** Sử dụng "Hợp đồng dữ liệu" (Data Contract) làm điểm giao thoa.
 
+### [D-004] Chiến lược Kiểm thử: Shift-Left & Quality Gate
+- **Lựa chọn:** Thiết lập E2E test ngay từ story đầu tiên và bắt buộc Pass test để hoàn thành Story.
+- **Lý do:** Tránh tích tụ nợ kỹ thuật (technical debt) và đảm bảo các tính năng cũ không bị hỏng khi thêm tính năng mới.
+- **Công cụ:** Playwright + Custom BMad Workflow Overrides.
+
 ---
 
 ## 3. Bài học kinh nghiệm (Lessons Learned)
@@ -53,8 +62,8 @@
 ---
 
 ## 4. Trạng thái Hiện tại & Bước tiếp theo
-- **Trạng thái:** Đã hoàn thành giai đoạn Hoạch định (Planning Phase) và Chuẩn bị (Preparation). Toàn bộ 17 Story đã ở trạng thái `ready-for-dev`.
-- **Bước tiếp theo:** Phân bổ cho 2 Agent thực thi song song (Backend-heavy vs Frontend-heavy). Bắt đầu với Story 1.1 và 2.1.
+- **Trạng thái:** Đang thực hiện Story 2.1. Đã hoàn tất hạ tầng E2E và cơ chế Quality Gate.
+- **Bước tiếp theo:** Hoàn tất Code Review cho Story 2.1 (kèm bằng chứng E2E test) và chuyển sang Story tiếp theo.
 
 ---
 *File này sẽ được cập nhật liên tục mỗi khi có quyết định mới.*
