@@ -32,11 +32,6 @@ export const proxy = auth((req) => {
     return NextResponse.redirect(nextUrl);
   }
 
-  // 2. Handle SKIP_AUTH
-  if (process.env.SKIP_AUTH === "true") {
-    return NextResponse.next();
-  }
-
   const isLoggedIn = !!req.auth;
 
   // Remove locale prefix for checking protected paths

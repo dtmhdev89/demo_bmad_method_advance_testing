@@ -1,8 +1,10 @@
 import { test, expect } from '../support/fixtures';
+import { registerAndLogin } from '../support/helpers/auth';
 
 test.describe('Multilingual Content Management', () => {
   test('should add and manage definitions and examples', async ({ page }) => {
-    // 1. Create a concept first
+    // 1. Login and Create a concept
+    await registerAndLogin(page);
     await page.goto('/dashboard');
     const meaning = `Multilingual Test ${Date.now()}`;
     await page.getByTestId('concept-meaning-input').fill(meaning);
@@ -17,19 +19,19 @@ test.describe('Multilingual Content Management', () => {
     await page.getByTestId('save-definition-button').click();
     
     // Verify visibility
-    await expect(page.locator('text=This is a test definition')).toBeVisible();
+    await expect(page.getByText('This is a test definition')).toBeVisible();
 
     // 3. Add an example
     await page.getByTestId('add-example-button').click();
     await page.getByTestId('example-input').fill('This is a test example');
     await page.getByTestId('save-example-button').click();
     
-    // Verify visibility (usually displayed in quotes)
-    await expect(page.locator('text="This is a test example"')).toBeVisible();
+    // Verify visibility
+    await expect(page.getByText('This is a test example')).toBeVisible();
 
     // 4. Verify they persist on reload
     await page.reload();
-    await expect(page.locator('text=This is a test definition')).toBeVisible();
-    await expect(page.locator('text="This is a test example"')).toBeVisible();
+    await expect(page.getByText('This is a test definition')).toBeVisible();
+    await expect(page.getByText('This is a test example')).toBeVisible();
   });
 });

@@ -1,9 +1,10 @@
 import { test, expect } from '../support/fixtures';
+import { registerAndLogin } from '../support/helpers/auth';
 
 test.describe('Concept Node Creation', () => {
   test.beforeEach(async ({ page }) => {
-    // We use the dashboard as the starting point.
-    // Auth is skipped via SKIP_AUTH=true in the test environment.
+    // Register and login before each test
+    await registerAndLogin(page);
     await page.goto('/dashboard');
   });
 
