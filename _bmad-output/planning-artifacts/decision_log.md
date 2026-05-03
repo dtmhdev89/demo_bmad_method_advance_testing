@@ -17,6 +17,7 @@
 | DEC-012 | E2E Quality Gate Enforcement | Bắt buộc pass E2E tests để hoàn thành Story nhằm duy trì tính ổn định liên tục. | Approved |
 | DEC-013 | I18n Proxy Pattern | Sử dụng pattern [locale] kết hợp với proxy.ts để thay thế middleware i18n truyền thống, giải quyết xung đột với NextAuth. | Approved |
 | DEC-014 | Webpack over Turbopack | Vô hiệu hóa Turbopack để đảm bảo độ ổn định môi trường phát triển và tránh lỗi Hydration. | Approved |
+| DEC-015 | Mandatory Real Auth for E2E | Bắt buộc thực hiện đăng ký/đăng nhập thực tế trong E2E tests, loại bỏ SKIP_AUTH để đảm bảo tính xác thực của quy trình. | Approved |
 
 | Giai đoạn | Hành động | Kết quả | Ghi chú |
 | :--- | :--- | :--- | :--- |
@@ -29,6 +30,7 @@
 | **03/05/2026** | Thiết lập E2E Framework | Cài đặt Playwright và viết test đầu tiên cho Story 2.1. | Đảm bảo AC được kiểm chứng tự động. |
 | **03/05/2026** | Tùy chỉnh Quality Gate | Cấu hình BMad để bắt buộc pass test trước khi Done Story. | Tăng cường tính kỷ luật trong phát triển. |
 | **03/05/2026** | Hoàn thành Story 1.1 & 2.1 | Triển khai Đăng ký tài khoản và Tạo Concept Node. | Đạt 100% pass E2E tests cho cả hai story. |
+| **03/05/2026** | Hoàn thành Story 1.2 & 2.2 | Triển khai Đăng nhập/Session và Quản lý nội dung đa ngôn ngữ. | Loại bỏ SKIP_AUTH, sử dụng xác thực thực tế trong E2E. |
 
 ---
 
@@ -64,18 +66,24 @@
 - **Lý do:** Turbopack (Next.js v15) đôi khi gây lỗi Hydration mismatch và hot reload không ổn định khi kết hợp với nhiều thư viện i18n/UI phức tạp.
 - **Kết quả:** Môi trường dev ổn định, tốc độ phản hồi đồng nhất.
 
+### [D-007] Quy chuẩn xác thực trong Kiểm thử E2E
+- **Lựa chọn:** Bắt buộc sử dụng quy trình Đăng ký/Đăng nhập thực tế, vô hiệu hóa `SKIP_AUTH`.
+- **Lý do:** Đảm bảo Middleware, Session và các Redirect flows hoạt động chính xác 100% trong môi trường giống production nhất có thể. Tránh các lỗi tiềm ẩn khi bỏ qua lớp bảo mật.
+- **Hệ quả:** Tăng thời gian chạy test một chút nhưng đảm bảo độ tin cậy tuyệt đối cho luồng người dùng.
+
 ---
 
 ## 3. Bài học kinh nghiệm (Lessons Learned)
 
 - **Về Quy trình:** Việc dành thời gian định nghĩa rõ "Contract" (JSON Schema) ngay từ đầu giúp giảm 80% rắc rối khi tích hợp (Integration).
 - **Về Giao tiếp với AI:** Khi yêu cầu AI chia nhỏ task, cần chỉ rõ "Điểm chốt chặn" (Gate) để kiểm soát chất lượng.
+- **Về Testing:** Không nên dùng shortcuts như `SKIP_AUTH` trong E2E nếu kiến trúc i18n/routing phức tạp, vì nó che giấu các lỗi routing thực tế.
 
 ---
 
 ## 4. Trạng thái Hiện tại & Bước tiếp theo
-- **Trạng thái:** Đã hoàn thành Story 1.1 và 2.1. Hạ tầng E2E và I18n đã ổn định.
-- **Bước tiếp theo:** Triển khai Story 1.2 (Login/Session) và Story 2.2 (Multi-language Definitions).
+- **Trạng thái:** Đã hoàn thành Story 1.1, 1.2, 2.1 và 2.2. Hệ thống Auth và nội dung đa ngôn ngữ đã vận hành ổn định.
+- **Bước tiếp theo:** Triển khai Epic 3 (AI Integration) và các tính năng nâng cao của Epic 2.
 
 ---
 *File này sẽ được cập nhật liên tục mỗi khi có quyết định mới.*
