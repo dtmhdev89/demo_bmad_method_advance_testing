@@ -46,6 +46,20 @@ npx prisma generate
 # npx prisma db push (Để đẩy schema lên database của bạn)
 ```
 
+### 4. Kiểm thử (Testing)
+Dự án áp dụng quy chuẩn kiểm thử nghiêm ngặt để đảm bảo chất lượng:
+- **Toàn bộ Test (E2E + Unit):**
+  ```bash
+  make test-all
+  ```
+  *Lệnh này sẽ khởi động môi trường test, chạy database migration và thực hiện toàn bộ suite Playwright E2E.*
+
+- **Xem báo cáo (Report):** Sau khi chạy test, bạn có thể xem báo cáo chi tiết tại thư mục `playwright-report`.
+- **Lưu trữ báo cáo (Tùy chọn):** Nếu bạn cần lưu lại kết quả test để làm báo cáo chính thức trong source code:
+  1. Sao chép nội dung từ `playwright-report/` vào một thư mục trong `docs/test-reports/`.
+  2. Thư mục `docs/` được phép commit vào git, giúp bạn lưu trữ bằng chứng kiểm thử một cách bền vững.
+- **Lưu ý:** Mặc định, các tệp tạm thời trong `test-results/` được `.gitignore` bỏ qua để tránh làm nặng repository.
+
 ---
 
 ## 💡 Các lệnh hữu ích khác

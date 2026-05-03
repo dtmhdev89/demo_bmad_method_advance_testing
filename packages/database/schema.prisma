@@ -12,11 +12,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  FREE
+  PRO
+}
+
 model User {
   id              String         @id @default(cuid())
   email           String         @unique
   password        String? // Hashed password (bcrypt) – null for OAuth users
   name            String?
+  role            Role           @default(FREE)
   image           String?
   decks           Deck[]
   targetLanguages UserLanguage[]

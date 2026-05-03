@@ -1,24 +1,395 @@
-<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="450.66262399999994">
-<testsuite name="auth.spec.ts" timestamp="2026-05-03T03:31:11.542Z" hostname="chromium" tests="5" failures="0" skipped="0" time="12.2" errors="0">
-<testcase name="User Registration › should register a new user successfully" classname="auth.spec.ts" time="2.781">
+<testsuites id="" name="" tests="30" failures="3" skipped="0" errors="3" time="186.361057">
+<testsuite name="auth.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="chromium" tests="5" failures="0" skipped="0" time="25.295" errors="0">
+<testcase name="User Registration › should register a new user successfully" classname="auth.spec.ts" time="4.23">
 </testcase>
-<testcase name="User Registration › should show validation error for invalid email" classname="auth.spec.ts" time="1.735">
+<testcase name="User Registration › should show validation error for invalid email" classname="auth.spec.ts" time="2.563">
 </testcase>
-<testcase name="User Registration › should show error if no language is selected" classname="auth.spec.ts" time="1.288">
+<testcase name="User Registration › should show error if no language is selected" classname="auth.spec.ts" time="2.623">
 </testcase>
-<testcase name="User Login › should login successfully with correct credentials" classname="auth.spec.ts" time="5.002">
+<testcase name="User Login › should login successfully with correct credentials" classname="auth.spec.ts" time="13.238">
 </testcase>
-<testcase name="User Login › should show error with incorrect credentials" classname="auth.spec.ts" time="1.394">
-</testcase>
-</testsuite>
-<testsuite name="concept-node.spec.ts" timestamp="2026-05-03T03:31:11.542Z" hostname="chromium" tests="2" failures="0" skipped="0" time="6.479" errors="0">
-<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="3.249">
-</testcase>
-<testcase name="Concept Node Creation › should show validation error if meaning is empty" classname="concept-node.spec.ts" time="3.23">
+<testcase name="User Login › should show error with incorrect credentials" classname="auth.spec.ts" time="2.641">
 </testcase>
 </testsuite>
-<testsuite name="multilingual-content.spec.ts" timestamp="2026-05-03T03:31:11.542Z" hostname="chromium" tests="1" failures="0" skipped="0" time="4.297" errors="0">
-<testcase name="Multilingual Content Management › should add and manage definitions and examples" classname="multilingual-content.spec.ts" time="4.297">
+<testsuite name="concept-node.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="chromium" tests="2" failures="0" skipped="0" time="17.441" errors="0">
+<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="10.041">
+</testcase>
+<testcase name="Concept Node Creation › should show validation error if meaning is empty" classname="concept-node.spec.ts" time="7.4">
+</testcase>
+</testsuite>
+<testsuite name="multilingual-content.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="chromium" tests="1" failures="0" skipped="0" time="9.199" errors="0">
+<testcase name="Multilingual Content Management › should add and manage definitions and examples" classname="multilingual-content.spec.ts" time="9.199">
+</testcase>
+</testsuite>
+<testsuite name="profile.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="chromium" tests="2" failures="1" skipped="0" time="39.885" errors="1">
+<testcase name="User Profile Management › should display current user info in profile page" classname="profile.spec.ts" time="17.806">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/video.webm]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  [chromium] › profile.spec.ts:18:7 › User Profile Management › should display current user info in profile page 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1')
+    Expected pattern: /Hồ sơ cá nhân/
+    Received string:  "This page couldn’t load"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('h1')
+        14 × locator resolved to <h1>This page couldn’t load</h1>
+           - unexpected value "This page couldn’t load"
+
+
+      21 |     await page.goto(profileUrl);
+      22 |
+    > 23 |     await expect(page.locator('h1')).toContainText(/Hồ sơ cá nhân/);
+         |                                      ^
+      24 |     await expect(page.locator('#user-role')).toContainText(/FREE|PRO/);
+      25 |     
+      26 |     // Check if Vietnamese is selected
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/profile.spec.ts:23:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="User Profile Management › should update name and target languages" classname="profile.spec.ts" time="22.079">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/video.webm]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/trace.zip]]
+]]>
+</system-out>
+<error message="page.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [chromium] › profile.spec.ts:30:7 › User Profile Management › should update name and target languages 
+
+    TimeoutError: page.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('input[placeholder="Nhập tên của bạn"]')
+
+
+      34 |
+      35 |     const newName = 'Amelia Developer';
+    > 36 |     await page.fill('input[placeholder="Nhập tên của bạn"]', newName);
+         |                ^
+      37 |
+      38 |     // Select English and Japanese
+      39 |     await page.click('button:has-text("Tiếng Anh")');
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/profile.spec.ts:36:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="auth.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="firefox" tests="5" failures="0" skipped="0" time="19.805" errors="0">
+<testcase name="User Registration › should register a new user successfully" classname="auth.spec.ts" time="5.177">
+</testcase>
+<testcase name="User Registration › should show validation error for invalid email" classname="auth.spec.ts" time="4.003">
+</testcase>
+<testcase name="User Registration › should show error if no language is selected" classname="auth.spec.ts" time="1.987">
+</testcase>
+<testcase name="User Login › should login successfully with correct credentials" classname="auth.spec.ts" time="6.41">
+</testcase>
+<testcase name="User Login › should show error with incorrect credentials" classname="auth.spec.ts" time="2.228">
+</testcase>
+</testsuite>
+<testsuite name="concept-node.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="firefox" tests="2" failures="0" skipped="0" time="11.147" errors="0">
+<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="5.55">
+</testcase>
+<testcase name="Concept Node Creation › should show validation error if meaning is empty" classname="concept-node.spec.ts" time="5.597">
+</testcase>
+</testsuite>
+<testsuite name="multilingual-content.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="firefox" tests="1" failures="0" skipped="0" time="14.119" errors="0">
+<testcase name="Multilingual Content Management › should add and manage definitions and examples" classname="multilingual-content.spec.ts" time="14.119">
+</testcase>
+</testsuite>
+<testsuite name="profile.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="firefox" tests="2" failures="1" skipped="0" time="39.915" errors="1">
+<testcase name="User Profile Management › should display current user info in profile page" classname="profile.spec.ts" time="16.413">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/video.webm]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/error-context.md]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  [firefox] › profile.spec.ts:18:7 › User Profile Management › should display current user info in profile page 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1')
+    Expected pattern: /Hồ sơ cá nhân/
+    Received string:  "This page couldn’t load"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('h1')
+        13 × locator resolved to <h1>This page couldn’t load</h1>
+           - unexpected value "This page couldn’t load"
+
+
+      21 |     await page.goto(profileUrl);
+      22 |
+    > 23 |     await expect(page.locator('h1')).toContainText(/Hồ sơ cá nhân/);
+         |                                      ^
+      24 |     await expect(page.locator('#user-role')).toContainText(/FREE|PRO/);
+      25 |     
+      26 |     // Check if Vietnamese is selected
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/profile.spec.ts:23:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="User Profile Management › should update name and target languages" classname="profile.spec.ts" time="23.502">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/video.webm]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/error-context.md]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/trace.zip]]
+]]>
+</system-out>
+<error message="page.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [firefox] › profile.spec.ts:30:7 › User Profile Management › should update name and target languages 
+
+    TimeoutError: page.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('input[placeholder="Nhập tên của bạn"]')
+
+
+      34 |
+      35 |     const newName = 'Amelia Developer';
+    > 36 |     await page.fill('input[placeholder="Nhập tên của bạn"]', newName);
+         |                ^
+      37 |
+      38 |     // Select English and Japanese
+      39 |     await page.click('button:has-text("Tiếng Anh")');
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/profile.spec.ts:36:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="auth.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="webkit" tests="5" failures="0" skipped="0" time="19.165" errors="0">
+<testcase name="User Registration › should register a new user successfully" classname="auth.spec.ts" time="7.627">
+</testcase>
+<testcase name="User Registration › should show validation error for invalid email" classname="auth.spec.ts" time="1.412">
+</testcase>
+<testcase name="User Registration › should show error if no language is selected" classname="auth.spec.ts" time="1.263">
+</testcase>
+<testcase name="User Login › should login successfully with correct credentials" classname="auth.spec.ts" time="7.345">
+</testcase>
+<testcase name="User Login › should show error with incorrect credentials" classname="auth.spec.ts" time="1.518">
+</testcase>
+</testsuite>
+<testsuite name="concept-node.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="webkit" tests="2" failures="0" skipped="0" time="12.476" errors="0">
+<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="6.359">
+</testcase>
+<testcase name="Concept Node Creation › should show validation error if meaning is empty" classname="concept-node.spec.ts" time="6.117">
+</testcase>
+</testsuite>
+<testsuite name="multilingual-content.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="webkit" tests="1" failures="0" skipped="0" time="6.844" errors="0">
+<testcase name="Multilingual Content Management › should add and manage definitions and examples" classname="multilingual-content.spec.ts" time="6.844">
+</testcase>
+</testsuite>
+<testsuite name="profile.spec.ts" timestamp="2026-05-03T08:07:23.364Z" hostname="webkit" tests="2" failures="1" skipped="0" time="36.678" errors="1">
+<testcase name="User Profile Management › should display current user info in profile page" classname="profile.spec.ts" time="15.949">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/video.webm]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/error-context.md]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  [webkit] › profile.spec.ts:18:7 › User Profile Management › should display current user info in profile page 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1')
+    Expected pattern: /Hồ sơ cá nhân/
+    Received string:  "This page couldn’t load"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('h1')
+        14 × locator resolved to <h1>This page couldn’t load</h1>
+           - unexpected value "This page couldn’t load"
+
+
+      21 |     await page.goto(profileUrl);
+      22 |
+    > 23 |     await expect(page.locator('h1')).toContainText(/Hồ sơ cá nhân/);
+         |                                      ^
+      24 |     await expect(page.locator('#user-role')).toContainText(/FREE|PRO/);
+      25 |     
+      26 |     // Check if Vietnamese is selected
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/profile.spec.ts:23:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../test-results/profile-User-Profile-Manag-cd538-t-user-info-in-profile-page-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="User Profile Management › should update name and target languages" classname="profile.spec.ts" time="20.729">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/video.webm]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/error-context.md]]
+
+[[ATTACHMENT|../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/trace.zip]]
+]]>
+</system-out>
+<error message="page.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [webkit] › profile.spec.ts:30:7 › User Profile Management › should update name and target languages 
+
+    TimeoutError: page.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('input[placeholder="Nhập tên của bạn"]')
+
+
+      34 |
+      35 |     const newName = 'Amelia Developer';
+    > 36 |     await page.fill('input[placeholder="Nhập tên của bạn"]', newName);
+         |                ^
+      37 |
+      38 |     // Select English and Japanese
+      39 |     await page.click('button:has-text("Tiếng Anh")');
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/profile.spec.ts:36:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../test-results/profile-User-Profile-Manag-9912a-e-name-and-target-languages-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
 </testcase>
 </testsuite>
 </testsuites>

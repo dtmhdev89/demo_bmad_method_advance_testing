@@ -18,6 +18,8 @@
 | DEC-013 | I18n Proxy Pattern | Sử dụng pattern [locale] kết hợp với proxy.ts để thay thế middleware i18n truyền thống, giải quyết xung đột với NextAuth. | Approved |
 | DEC-014 | Webpack over Turbopack | Vô hiệu hóa Turbopack để đảm bảo độ ổn định môi trường phát triển và tránh lỗi Hydration. | Approved |
 | DEC-015 | Mandatory Real Auth for E2E | Bắt buộc thực hiện đăng ký/đăng nhập thực tế trong E2E tests, loại bỏ SKIP_AUTH để đảm bảo tính xác thực của quy trình. | Approved |
+| DEC-016 | Zod Schema Validation for Server Actions | Bảo vệ lớp ứng dụng bằng cách xác thực cấu trúc và kiểu dữ liệu đầu vào ngay tại Server Actions. | Approved |
+| DEC-017 | Client-side Session Update Strategy | Sử dụng hàm `update()` của NextAuth để đồng bộ trạng thái Session ngay sau khi người dùng cập nhật hồ sơ. | Approved |
 
 | Giai đoạn | Hành động | Kết quả | Ghi chú |
 | :--- | :--- | :--- | :--- |
@@ -31,6 +33,7 @@
 | **03/05/2026** | Tùy chỉnh Quality Gate | Cấu hình BMad để bắt buộc pass test trước khi Done Story. | Tăng cường tính kỷ luật trong phát triển. |
 | **03/05/2026** | Hoàn thành Story 1.1 & 2.1 | Triển khai Đăng ký tài khoản và Tạo Concept Node. | Đạt 100% pass E2E tests cho cả hai story. |
 | **03/05/2026** | Hoàn thành Story 1.2 & 2.2 | Triển khai Đăng nhập/Session và Quản lý nội dung đa ngôn ngữ. | Loại bỏ SKIP_AUTH, sử dụng xác thực thực tế trong E2E. |
+| **03/05/2026** | Hoàn thành Story 1.3 | Triển khai Quản lý hồ sơ và Phân quyền (Free/Pro). | Tích hợp Zod Validation và cơ chế đồng bộ Session tức thì. |
 
 ---
 
@@ -71,6 +74,16 @@
 - **Lý do:** Đảm bảo Middleware, Session và các Redirect flows hoạt động chính xác 100% trong môi trường giống production nhất có thể. Tránh các lỗi tiềm ẩn khi bỏ qua lớp bảo mật.
 - **Hệ quả:** Tăng thời gian chạy test một chút nhưng đảm bảo độ tin cậy tuyệt đối cho luồng người dùng.
 
+### [D-008] Xác thực dữ liệu đầu vào: Zod for Server Actions
+- **Lựa chọn:** Sử dụng Zod để định nghĩa schema và validate dữ liệu ngay tại điểm nhận request của Server Actions.
+- **Lý do:** Ngăn chặn các dữ liệu rác, đảm bảo type-safety từ client lên server và cung cấp thông báo lỗi thân thiện cho người dùng.
+- **Lợi ích:** Giảm thiểu rủi ro logic và tăng độ bền vững cho mã nguồn.
+
+### [D-009] Đồng bộ trạng thái UI: Client-side Session Update
+- **Lựa chọn:** Sử dụng API `update()` của `useSession` (NextAuth) sau mỗi lần cập nhật hồ sơ thành công.
+- **Lý do:** Khắc phục nhược điểm của NextAuth session khi dữ liệu trong Database thay đổi nhưng Session phía Client vẫn giữ giá trị cũ (stale data).
+- **Kết quả:** Người dùng thấy ngay thay đổi (như Badge Pro, Ngôn ngữ mục tiêu) mà không cần đăng nhập lại.
+
 ---
 
 ## 3. Bài học kinh nghiệm (Lessons Learned)
@@ -82,7 +95,7 @@
 ---
 
 ## 4. Trạng thái Hiện tại & Bước tiếp theo
-- **Trạng thái:** Đã hoàn thành Story 1.1, 1.2, 2.1 và 2.2. Hệ thống Auth và nội dung đa ngôn ngữ đã vận hành ổn định.
+- **Trạng thái:** Đã hoàn thành toàn bộ Epic 1 (Story 1.1, 1.2, 1.3) và các phần cốt lõi của Epic 2 (2.1, 2.2).
 - **Bước tiếp theo:** Triển khai Epic 3 (AI Integration) và các tính năng nâng cao của Epic 2.
 
 ---
