@@ -1,56 +1,27 @@
 
-Running 5 tests using 4 workers
+Running 24 tests using 4 workers
 
-  ✓  3 [chromium] › tests/auth.spec.ts:43:7 › User Registration › should show error if no language is selected (3.6s)
-  ✓  1 [chromium] › tests/auth.spec.ts:30:7 › User Registration › should show validation error for invalid email (4.0s)
-  ✓  2 [chromium] › tests/auth.spec.ts:9:7 › User Registration › should register a new user successfully (5.4s)
-  ✓  5 [chromium] › tests/auth.spec.ts:86:7 › User Login › should show error with incorrect credentials (2.5s)
-  ✘  4 [chromium] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials (18.5s)
-
-
-  1) [chromium] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials 
-
-    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
-
-    Expected pattern: [32m/\/(vi|en|ja)\/dashboard/[39m
-    Received string:  [31m"http://localhost:3000/dashboard"[39m
-    Timeout: 10000ms
-
-    Call log:
-    [2m  - Expect "toHaveURL" with timeout 10000ms[22m
-    [2m    4 × unexpected value "http://localhost:3000/en/login"[22m
-    [2m    10 × unexpected value "http://localhost:3000/dashboard"[22m
-
-
-      80 |
-      81 |     // 4. Should redirect to dashboard
-    > 82 |     await expect(page).toHaveURL(/\/(vi|en|ja)\/dashboard/);
-         |                        ^
-      83 |     await expect(page.locator('h1')).toContainText(/Dashboard|Bảng điều khiển/);
-      84 |   });
-      85 |
-        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/auth.spec.ts:82:24
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/error-context.md
-
-    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/trace.zip
-    Usage:
-
-        npx playwright show-trace test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  1 failed
-    [chromium] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials 
-  4 passed (2.0m)
-
-[36m  Serving HTML report at http://localhost:52443. Press Ctrl+C to quit.[39m
+  ✓   2 [chromium] › tests/auth.spec.ts:30:7 › User Registration › should show validation error for invalid email (11.3s)
+  ✓   1 [chromium] › tests/auth.spec.ts:43:7 › User Registration › should show error if no language is selected (11.4s)
+  ✘   4 [chromium] › tests/auth.spec.ts:9:7 › User Registration › should register a new user successfully (18.3s)
+  ✓   5 [chromium] › tests/auth.spec.ts:86:7 › User Login › should show error with incorrect credentials (14.1s)
+  ✘   3 [chromium] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials (31.3s)
+  ✓   7 [chromium] › tests/concept-node.spec.ts:30:7 › Concept Node Creation › should show validation error if meaning is empty (9.1s)
+  ✘   6 [chromium] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (24.8s)
+  ✓  10 [firefox] › tests/auth.spec.ts:30:7 › User Registration › should show validation error for invalid email (13.2s)
+  ✘   8 [chromium] › tests/multilingual-content.spec.ts:4:7 › Multilingual Content Management › should add and manage definitions and examples (26.3s)
+  ✓  11 [firefox] › tests/auth.spec.ts:43:7 › User Registration › should show error if no language is selected (14.8s)
+  ✓   9 [firefox] › tests/auth.spec.ts:9:7 › User Registration › should register a new user successfully (20.2s)
+  ✓  15 [firefox] › tests/concept-node.spec.ts:30:7 › Concept Node Creation › should show validation error if meaning is empty (10.2s)
+  ✓  13 [firefox] › tests/auth.spec.ts:86:7 › User Login › should show error with incorrect credentials (19.0s)
+  ✘  14 [firefox] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (25.7s)
+  ✓  12 [firefox] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials (36.7s)
+  ✓  17 [webkit] › tests/auth.spec.ts:9:7 › User Registration › should register a new user successfully (13.3s)
+  ✓  18 [webkit] › tests/auth.spec.ts:30:7 › User Registration › should show validation error for invalid email (7.8s)
+  ✓  19 [webkit] › tests/auth.spec.ts:43:7 › User Registration › should show error if no language is selected (5.8s)
+  ✘  16 [firefox] › tests/multilingual-content.spec.ts:4:7 › Multilingual Content Management › should add and manage definitions and examples (29.0s)
+  ✓  21 [webkit] › tests/auth.spec.ts:86:7 › User Login › should show error with incorrect credentials (9.1s)
+  ✓  23 [webkit] › tests/concept-node.spec.ts:30:7 › Concept Node Creation › should show validation error if meaning is empty (11.0s)
+  ✘  22 [webkit] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (18.7s)
+  ✓  20 [webkit] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials (23.0s)
+  ✘  24 [webkit] › tests/multilingual-content.spec.ts:4:7 › Multilingual Content Management › should add and manage definitions and examples (24.0s)

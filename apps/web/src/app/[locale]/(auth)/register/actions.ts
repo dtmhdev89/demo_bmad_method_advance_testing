@@ -111,7 +111,10 @@ export async function registerAction(
       password,
       redirect: false,
     });
-  } catch (error) {
+  } catch (error: any) {
+    if (error?.digest?.startsWith?.("NEXT_REDIRECT")) {
+      return { success: true };
+    }
     if (error instanceof AuthError) {
       // Account was created successfully but auto-login failed – not fatal
       return { success: true };

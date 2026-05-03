@@ -33,7 +33,10 @@ export async function loginAction(
     });
     
     return { success: true };
-  } catch (error) {
+  } catch (error: any) {
+    if (error?.digest?.startsWith?.("NEXT_REDIRECT")) {
+      return { success: true };
+    }
     if (error instanceof AuthError) {
       switch (error.type) {
         case "CredentialsSignin":
@@ -42,6 +45,6 @@ export async function loginAction(
           return { error: "Đã có lỗi xảy ra trong quá trình đăng nhập" };
       }
     }
-    throw error; // Rethrow redirect errors
+    throw error; // Rethrow other errors
   }
 }

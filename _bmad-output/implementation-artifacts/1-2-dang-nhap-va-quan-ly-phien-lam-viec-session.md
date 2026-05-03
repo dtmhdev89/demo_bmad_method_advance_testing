@@ -40,6 +40,10 @@
     - [x] Viết Unit Test cho Auth logic
     - [x] Viết E2E Test cho luồng Login
 
+### Review Findings
+- [ ] [Review][Patch] Sửa lỗi chuyển hướng sau khi đăng nhập (NextAuth) [apps/web/src/app/[locale]/(auth)/login/actions.ts:46]
+- [ ] [Review][Patch] Chạy lại E2E test để đảm bảo pass 100% [apps/e2e/test_debug.txt]
+
 ## 📝 Dev Agent Record
 ### Implementation Plan
 Sử dụng NextAuth v5 để quản lý xác thực. Lưu trữ session dưới dạng JWT. Middleware được cập nhật để kiểm tra session trước khi cho phép vào các private routes (`/dashboard`, `/study`). Form đăng nhập sử dụng server actions và điều hướng bằng client router để giữ lại locale.

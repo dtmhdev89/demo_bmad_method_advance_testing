@@ -1,68 +1,182 @@
-<testsuites id="" name="" tests="5" failures="1" skipped="0" errors="0" time="117.20859999999999">
-<testsuite name="auth.spec.ts" timestamp="2026-05-02T23:48:27.627Z" hostname="chromium" tests="5" failures="1" skipped="0" time="34.046" errors="0">
-<testcase name="User Registration › should register a new user successfully" classname="auth.spec.ts" time="5.371">
-</testcase>
-<testcase name="User Registration › should show validation error for invalid email" classname="auth.spec.ts" time="4.024">
-</testcase>
-<testcase name="User Registration › should show error if no language is selected" classname="auth.spec.ts" time="3.646">
-</testcase>
-<testcase name="User Login › should login successfully with correct credentials" classname="auth.spec.ts" time="18.51">
+<testsuites id="" name="" tests="3" failures="3" skipped="0" errors="0" time="28.587598999999997">
+<testsuite name="concept-node.spec.ts" timestamp="2026-05-03T02:57:49.582Z" hostname="chromium" tests="1" failures="1" skipped="0" time="12.302" errors="0">
+<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="12.302">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/test-failed-1.png]]
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/test-failed-1.png]]
 
-[[ATTACHMENT|../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/video.webm]]
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/video.webm]]
 
-[[ATTACHMENT|../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/error-context.md]]
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/error-context.md]]
 
-[[ATTACHMENT|../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/trace.zip]]
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/trace.zip]]
 ]]>
 </system-out>
-<failure message="expect(page).toHaveURL(expected) failed" type="expect.toHaveURL">
-<![CDATA[  [chromium] › auth.spec.ts:60:7 › User Login › should login successfully with correct credentials ─
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  [chromium] › concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page 
 
-    Error: expect(page).toHaveURL(expected) failed
+    Error: expect(locator).toContainText(expected) failed
 
-    Expected pattern: /\/(vi|en|ja)\/dashboard/
-    Received string:  "http://localhost:3000/dashboard"
+    Locator: locator('h1')
+    Expected pattern: /Chi tiết Concept|Concept Details/
+    Received string:  "Đăng nhập"
     Timeout: 10000ms
 
     Call log:
-      - Expect "toHaveURL" with timeout 10000ms
-        4 × unexpected value "http://localhost:3000/en/login"
-        10 × unexpected value "http://localhost:3000/dashboard"
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('h1')
+        11 × locator resolved to <h1 class="text-2xl font-bold text-white mb-1">Đăng nhập</h1>
+           - unexpected value "Đăng nhập"
 
 
-      80 |
-      81 |     // 4. Should redirect to dashboard
-    > 82 |     await expect(page).toHaveURL(/\/(vi|en|ja)\/dashboard/);
-         |                        ^
-      83 |     await expect(page.locator('h1')).toContainText(/Dashboard|Bảng điều khiển/);
-      84 |   });
-      85 |
-        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/auth.spec.ts:82:24
+      21 |     
+      22 |     // Verify detail page content
+    > 23 |     await expect(page.locator('h1')).toContainText(/Chi tiết Concept|Concept Details/, { timeout: 10000 });
+         |                                      ^
+      24 |     await expect(page.locator('text=ID:')).toBeVisible();
+      25 |     
+      26 |     // Verify the meaning we entered is displayed
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/concept-node.spec.ts:23:38
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/test-failed-1.png
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/video.webm
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/error-context.md
+    Error Context: ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/error-context.md
 
     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    ../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/trace.zip
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/trace.zip
     Usage:
 
-        npx playwright show-trace ../test-results/auth-User-Login-should-log-87f31-ly-with-correct-credentials-chromium/trace.zip
+        npx playwright show-trace ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-chromium/trace.zip
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </failure>
 </testcase>
-<testcase name="User Login › should show error with incorrect credentials" classname="auth.spec.ts" time="2.495">
+</testsuite>
+<testsuite name="concept-node.spec.ts" timestamp="2026-05-03T02:57:49.582Z" hostname="firefox" tests="1" failures="1" skipped="0" time="13.029" errors="0">
+<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="13.029">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/video.webm]]
+
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/error-context.md]]
+
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  [firefox] › concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1')
+    Expected pattern: /Chi tiết Concept|Concept Details/
+    Received string:  "Đăng nhập"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('h1')
+        12 × locator resolved to <h1 class="text-2xl font-bold text-white mb-1">Đăng nhập</h1>
+           - unexpected value "Đăng nhập"
+
+
+      21 |     
+      22 |     // Verify detail page content
+    > 23 |     await expect(page.locator('h1')).toContainText(/Chi tiết Concept|Concept Details/, { timeout: 10000 });
+         |                                      ^
+      24 |     await expect(page.locator('text=ID:')).toBeVisible();
+      25 |     
+      26 |     // Verify the meaning we entered is displayed
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/concept-node.spec.ts:23:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="concept-node.spec.ts" timestamp="2026-05-03T02:57:49.582Z" hostname="webkit" tests="1" failures="1" skipped="0" time="12.365" errors="0">
+<testcase name="Concept Node Creation › should create a new concept node and redirect to detail page" classname="concept-node.spec.ts" time="12.365">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/video.webm]]
+
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/error-context.md]]
+
+[[ATTACHMENT|../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  [webkit] › concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('h1')
+    Expected pattern: /Chi tiết Concept|Concept Details/
+    Received string:  "Đăng nhập"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for locator('h1')
+        11 × locator resolved to <h1 class="text-2xl font-bold text-white mb-1">Đăng nhập</h1>
+           - unexpected value "Đăng nhập"
+
+
+      21 |     
+      22 |     // Verify detail page content
+    > 23 |     await expect(page.locator('h1')).toContainText(/Chi tiết Concept|Concept Details/, { timeout: 10000 });
+         |                                      ^
+      24 |     await expect(page.locator('text=ID:')).toBeVisible();
+      25 |     
+      26 |     // Verify the meaning we entered is displayed
+        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/concept-node.spec.ts:23:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace ../test-results/concept-node-Concept-Node--a322b-and-redirect-to-detail-page-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
 </testcase>
 </testsuite>
 </testsuites>

@@ -42,6 +42,9 @@
     - [x] Viết E2E Tests cho luồng thêm/sửa/xóa đa ngôn ngữ
     - [x] Chạy `make test-all` và kiểm tra 100% Pass
 
+### Review Findings
+- [ ] [Review][Patch] Đảm bảo chạy và chứng minh đầy đủ E2E tests cho Story 2.2 [apps/e2e/test_debug.txt]
+
 ## 📝 Dev Agent Record
 ### Debug Log
 - [2026-05-02] Thêm model Prisma và đồng bộ database thành công.

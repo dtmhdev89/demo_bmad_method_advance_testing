@@ -1,54 +1,27 @@
 
-Running 3 tests using 3 workers
+Running 24 tests using 4 workers
 
-  ✓  1 [chromium] › tests/auth.spec.ts:29:7 › User Registration › should show validation error for invalid email (2.0s)
-  ✓  2 [chromium] › tests/auth.spec.ts:42:7 › User Registration › should show error if no language is selected (2.1s)
-  ✘  3 [chromium] › tests/auth.spec.ts:8:7 › User Registration › should register a new user successfully (12.2s)
-
-
-  1) [chromium] › tests/auth.spec.ts:8:7 › User Registration › should register a new user successfully 
-
-    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m failed
-
-    Expected: [32m"http://localhost:3000/[7mvi[27m/dashboard"[39m
-    Received: [31m"http://localhost:3000/[7men[27m/dashboard"[39m
-    Timeout:  10000ms
-
-    Call log:
-    [2m  - Expect "toHaveURL" with timeout 10000ms[22m
-    [2m    6 × unexpected value "http://localhost:3000/vi/register"[22m
-    [2m    8 × unexpected value "http://localhost:3000/en/dashboard"[22m
-
-
-      21 |
-      22 |     // Should redirect to dashboard
-    > 23 |     await expect(page).toHaveURL('/vi/dashboard');
-         |                        ^
-      24 |     
-      25 |     // Verify dashboard content
-      26 |     await expect(page.locator('h1')).toContainText(/Dashboard|Bảng điều khiển/);
-        at /Users/jrvn-hieu/Desktop/projects/workplace/demo_bmad_method_advance_testing/apps/e2e/tests/auth.spec.ts:23:24
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/error-context.md
-
-    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/trace.zip
-    Usage:
-
-        pnpm exec playwright show-trace test-results/auth-User-Registration-sho-05304-ter-a-new-user-successfully-chromium/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  1 failed
-    [chromium] › tests/auth.spec.ts:8:7 › User Registration › should register a new user successfully 
-  2 passed (14.0s)
-
-  Serving HTML report at http://localhost:60992. Press Ctrl+C to quit.
+  ✓   2 [chromium] › tests/auth.spec.ts:30:7 › User Registration › should show validation error for invalid email (2.5s)
+  ✓   4 [chromium] › tests/auth.spec.ts:43:7 › User Registration › should show error if no language is selected (3.1s)
+  ✓   3 [chromium] › tests/auth.spec.ts:9:7 › User Registration › should register a new user successfully (4.3s)
+  ✓   5 [chromium] › tests/auth.spec.ts:86:7 › User Login › should show error with incorrect credentials (2.5s)
+  ✓   7 [chromium] › tests/concept-node.spec.ts:30:7 › Concept Node Creation › should show validation error if meaning is empty (3.1s)
+  ✓   1 [chromium] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials (8.7s)
+  ✓   9 [firefox] › tests/auth.spec.ts:9:7 › User Registration › should register a new user successfully (3.3s)
+  ✓  10 [firefox] › tests/auth.spec.ts:30:7 › User Registration › should show validation error for invalid email (2.5s)
+  ✓  11 [firefox] › tests/auth.spec.ts:43:7 › User Registration › should show error if no language is selected (1.8s)
+  ✘   6 [chromium] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (12.4s)
+  ✓  13 [firefox] › tests/auth.spec.ts:86:7 › User Login › should show error with incorrect credentials (2.1s)
+  ✓  14 [firefox] › tests/concept-node.spec.ts:30:7 › Concept Node Creation › should show validation error if meaning is empty (1.7s)
+  ✓  12 [firefox] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials (7.3s)
+  ✓  17 [webkit] › tests/auth.spec.ts:9:7 › User Registration › should register a new user successfully (2.2s)
+  ✘   8 [chromium] › tests/multilingual-content.spec.ts:4:7 › Multilingual Content Management › should add and manage definitions and examples (17.9s)
+  ✓  18 [webkit] › tests/auth.spec.ts:30:7 › User Registration › should show validation error for invalid email (1.2s)
+  ✓  19 [webkit] › tests/auth.spec.ts:43:7 › User Registration › should show error if no language is selected (1.6s)
+  ✓  21 [webkit] › tests/auth.spec.ts:86:7 › User Login › should show error with incorrect credentials (1.6s)
+  ✓  20 [webkit] › tests/auth.spec.ts:60:7 › User Login › should login successfully with correct credentials (4.6s)
+  ✓  23 [webkit] › tests/concept-node.spec.ts:30:7 › Concept Node Creation › should show validation error if meaning is empty (917ms)
+  ✘  15 [firefox] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (12.9s)
+  ✘  16 [firefox] › tests/multilingual-content.spec.ts:4:7 › Multilingual Content Management › should add and manage definitions and examples (17.1s)
+  ✘  22 [webkit] › tests/concept-node.spec.ts:10:7 › Concept Node Creation › should create a new concept node and redirect to detail page (11.6s)
+  ✘  24 [webkit] › tests/multilingual-content.spec.ts:4:7 › Multilingual Content Management › should add and manage definitions and examples (16.1s)
